@@ -4,6 +4,7 @@ import { Container, Stack } from "@mui/system";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import CreateTodoModal from "../../components/CreateTodo";
+import TodoTable from "../../components/Table";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -51,13 +52,13 @@ export default function HomePage() {
     <>
       <Container fixed sx={{ p: "30px 0" }}>
         <Typography
-          variant="h3"
+          variant="h4"
           fontWeight={500}
-          sx={{ width: "100%", textAlign: "start", mt: 1, mb: 1, pb: 1 }}
+          sx={{ width: "100%", textAlign: "start", mt: 1 }}
         >
           Todo List
         </Typography>
-        <Stack direction="row" spacing={3}>
+        <Stack direction="row" spacing={3} margin={"20px 0"}>
           <TextField
             variant="filled"
             fullWidth
@@ -74,6 +75,7 @@ export default function HomePage() {
             Create new
           </Button>
         </Stack>
+        <TodoTable />
       </Container>
       <CreateTodoModal
         open={createTodoOpen}

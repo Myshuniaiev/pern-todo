@@ -15,7 +15,7 @@ interface IProps {
 
 export default function CreateTodoModal({ open, onClose, onSubmit }: IProps) {
   return (
-    <Dialog open={open} onClose={() => onClose()}>
+    <Dialog maxWidth="sm" fullWidth open={open} onClose={() => onClose()}>
       <DialogTitle>Create New todo</DialogTitle>
       <DialogContent>
         <Stack direction="column" spacing={3}>
@@ -25,6 +25,8 @@ export default function CreateTodoModal({ open, onClose, onSubmit }: IProps) {
             fullWidth
             label="Description"
             variant="filled"
+            multiline
+            rows={2}
           />
         </Stack>
       </DialogContent>
