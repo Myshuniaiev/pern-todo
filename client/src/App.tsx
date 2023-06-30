@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 
 /* Roboto Fonts */
 import "@fontsource/roboto/300.css";
