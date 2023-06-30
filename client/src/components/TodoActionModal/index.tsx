@@ -11,9 +11,10 @@ interface IProps {
   open: boolean;
   onClose: Function;
   onSubmit: Function;
+  todoId?: number;
 }
 
-export default function CreateTodoModal({ open, onClose, onSubmit }: IProps) {
+export default function TodoActionModal({ open, onClose, onSubmit }: IProps) {
   return (
     <Dialog maxWidth="sm" fullWidth open={open} onClose={() => onClose()}>
       <DialogTitle>Create New todo</DialogTitle>
