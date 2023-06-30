@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
-import { deleteTodoRequest } from "../../redux/todos/slice";
 import TodoTable from "./Table";
 
 const TodoTableContainer: React.FC = () => {

@@ -5,17 +5,11 @@ import TodoTable from "../Table";
 import TodoFormDialogContainer from "../TodoFormDialog";
 
 interface HomePageComponentProps {
-  todos: any[];
-  loading: boolean;
-  error: string | null;
   createTodoOpen: boolean;
   handleCreateTodoOpen: () => void;
 }
 
 const HomePageComponent: React.FC<HomePageComponentProps> = ({
-  todos,
-  loading,
-  error,
   createTodoOpen,
   handleCreateTodoOpen,
 }) => {

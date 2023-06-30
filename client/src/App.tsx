@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 
 /* Roboto Fonts */
 import "@fontsource/roboto/300.css";
@@ -38,7 +37,7 @@ function App() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        PERN Project
       </Typography>
       <Divider />
       <List>

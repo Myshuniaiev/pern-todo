@@ -34,7 +34,12 @@ const TodoDeleteDialog: React.FC<Props> = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Disagree</Button>
-        <Button onClick={handleConfirm} autoFocus>
+        <Button
+          onClick={handleConfirm}
+          autoFocus
+          variant="contained"
+          color="error"
+        >
           Agree
         </Button>
       </DialogActions>
