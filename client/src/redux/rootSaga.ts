@@ -1,15 +1,8 @@
-// src/redux/rootSaga.ts
-
 import { all } from "redux-saga/effects";
-
-// Import your sagas here like:
-// import watchTodosSaga from './todos/todoSaga';
+import { watchTodosActions } from "./todos/saga";
 
 function* rootSaga() {
-  yield all([
-    // watchTodosSaga(),
-    // more sagas would go here...
-  ]);
+  yield all([watchTodosActions()]);
 }
 
 export default rootSaga;

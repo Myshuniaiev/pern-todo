@@ -8,7 +8,6 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 /* Components */
-import HomePage from "./Content";
 import {
   CssBaseline,
   AppBar,
@@ -25,6 +24,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
+import ContentContainer from "./components/Content";
 
 const drawerWidth = 240;
 
@@ -98,7 +98,7 @@ function App() {
       </Box>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-        <HomePage />
+        <ContentContainer />
       </Box>
     </>
   );

@@ -1,11 +1,24 @@
 import React from "react";
 import { Button, TextField, Typography } from "@mui/material";
 import { Container, Stack } from "@mui/system";
-import TodoActionModal from "./components/TodoActionModal";
-import TodoTable from "./components/Table";
+import TodoTable from "../Table";
+import TodoFormDialogContainer from "../TodoFormDialog";
 
-export default function HomePage() {
-  const [createTodoOpen, setCreateTodoOpen] = React.useState<boolean>(false);
+interface HomePageComponentProps {
+  todos: any[];
+  loading: boolean;
+  error: string | null;
+  createTodoOpen: boolean;
+  handleCreateTodoOpen: () => void;
+}
+
+const HomePageComponent: React.FC<HomePageComponentProps> = ({
+  todos,
+  loading,
+  error,
+  createTodoOpen,
+  handleCreateTodoOpen,
+}) => {
   return (
     <>
       <Container fixed sx={{ p: "30px 0" }}>
@@ -24,18 +37,19 @@ export default function HomePage() {
             size="small"
             variant="contained"
             sx={{ width: "10%" }}
-            onClick={() => setCreateTodoOpen(true)}
+            onClick={handleCreateTodoOpen}
           >
             Create new
           </Button>
         </Stack>
         <TodoTable />
       </Container>
-      <TodoActionModal
+      <TodoFormDialogContainer
         open={createTodoOpen}
-        onClose={() => setCreateTodoOpen(false)}
-        onSubmit={() => setCreateTodoOpen(false)}
+        handleClose={handleCreateTodoOpen}
       />
     </>
   );
-}
+};
+
+export default HomePageComponent;
