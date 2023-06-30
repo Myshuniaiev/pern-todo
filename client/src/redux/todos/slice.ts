@@ -52,9 +52,7 @@ const todoSlice = createSlice({
       const index = state.todos.findIndex(
         (todo) => todo.id === action.payload.id
       );
-      if (index !== -1) {
-        state.todos[index] = action.payload;
-      }
+      if (index !== -1) state.todos[index] = action.payload;
     },
     updateTodoFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
