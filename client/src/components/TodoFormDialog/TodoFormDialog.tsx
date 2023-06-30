@@ -11,6 +11,7 @@ import {
 interface TodoFormDialogProps {
   open: boolean;
   title: string;
+  updateReq: boolean;
   description: string;
   handleClose: () => void;
   handleSave: () => void;
@@ -21,6 +22,7 @@ interface TodoFormDialogProps {
 const TodoFormDialog: React.FC<TodoFormDialogProps> = ({
   open,
   title,
+  updateReq,
   description,
   handleClose,
   handleSave,
@@ -29,10 +31,11 @@ const TodoFormDialog: React.FC<TodoFormDialogProps> = ({
 }) => {
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>{title ? "Update Todo" : "Create Todo"}</DialogTitle>
+      <DialogTitle>{updateReq ? "Update Todo" : "Create Todo"}</DialogTitle>
       <DialogContent>
         <TextField
           autoFocus
+          variant="filled"
           margin="dense"
           label="Title"
           type="text"
@@ -41,6 +44,7 @@ const TodoFormDialog: React.FC<TodoFormDialogProps> = ({
           onChange={(e) => handleTitleChange(e.target.value)}
         />
         <TextField
+          variant="filled"
           margin="dense"
           label="Description"
           type="text"
@@ -51,7 +55,11 @@ const TodoFormDialog: React.FC<TodoFormDialogProps> = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button variant="contained" onClick={handleSave}>
+        <Button
+          variant="contained"
+          onClick={handleSave}
+          disabled={!title || !description}
+        >
           Save
         </Button>
       </DialogActions>

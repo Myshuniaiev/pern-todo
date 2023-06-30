@@ -49,7 +49,6 @@ const TodoFormDialogContainer: React.FC<TodoFormDialogContainerProps> = ({
           description: formData.description,
         })
       );
-
     handleClose();
     setFormData({ title: "", description: "" });
   };
@@ -59,7 +58,11 @@ const TodoFormDialogContainer: React.FC<TodoFormDialogContainerProps> = ({
       open={open}
       title={formData.title}
       description={formData.description}
-      handleClose={handleClose}
+      updateReq={!!todo}
+      handleClose={() => {
+        handleClose();
+        setFormData({ title: "", description: "" });
+      }}
       handleSave={handleSave}
       handleTitleChange={(title) => setFormData((prev) => ({ ...prev, title }))}
       handleDescriptionChange={(description) =>
