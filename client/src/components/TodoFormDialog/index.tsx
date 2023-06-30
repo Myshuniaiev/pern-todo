@@ -28,15 +28,12 @@ const TodoFormDialogContainer: React.FC<TodoFormDialogContainerProps> = ({
 
   // Updating form data if `todo` prop changes
   React.useEffect(() => {
-    if (todo) {
-      setFormData({ title: todo.title, description: todo.description });
-    } else {
-      setFormData({ title: "", description: "" });
-    }
+    if (todo) setFormData({ title: todo.title, description: todo.description });
+    else setFormData({ title: "", description: "" });
   }, [todo]);
 
   const handleSave = () => {
-    if (todo) {
+    if (todo)
       dispatch(
         updateTodoRequest({
           ...todo,
@@ -44,7 +41,7 @@ const TodoFormDialogContainer: React.FC<TodoFormDialogContainerProps> = ({
           description: formData.description,
         })
       );
-    } else {
+    else
       dispatch(
         createTodoRequest({
           id: Date.now(),
@@ -52,8 +49,9 @@ const TodoFormDialogContainer: React.FC<TodoFormDialogContainerProps> = ({
           description: formData.description,
         })
       );
-    }
+
     handleClose();
+    setFormData({ title: "", description: "" });
   };
 
   return (
